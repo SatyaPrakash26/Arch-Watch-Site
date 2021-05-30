@@ -1,0 +1,960 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+:root{
+    --primary:#565681;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #1e242a;
+    overflow-x: hidden;
+}
+/* navbar */
+nav {
+    opacity: 0;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1500;
+    background: #1e242a;
+    animation: anim4 1s forwards 0.7s;
+    font-family: 'Orbitron',
+        sans-serif;
+}
+
+.logo {
+    color: cornsilk;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+#active {
+    border-bottom: 3px solid #8A5362;
+    border-radius: 4px;
+}
+
+.nav-links a {
+    color: cornsilk;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.4s;
+    padding-bottom: 5px;
+}
+
+.nav-links a:hover {
+    border-bottom: 3px solid #FC0000;
+    border-radius: 4px;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    transition: all 0.9s ease;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: cornsilk;
+    margin: 5px;
+    transition: all 0.9s ease;
+
+}
+
+.product-details{
+    opacity: 0;
+    width: 90%;
+    height: 87vh;
+    margin: 0 auto;
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    animation: bg 2s forwards 1s ;
+}
+.product-image{
+    width: 0%;
+    height: 100%;
+    background: url(../images/features/watch.png) center no-repeat;
+    animation: anim2 2s forwards 3s;
+}
+.product-content{
+    width: 50%;
+    height: 100%;
+    color: white;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.product-text {
+    overflow: hidden;
+    left:-100%;
+    margin-top: 6rem;
+    position: relative;
+    font-size:4rem;
+    text-align: center;
+    font-family: 'Orbitron',sans-serif;
+    animation: anim3 3s forwards 3s;
+}
+
+.product-text span {
+    font-size: 5vw;
+    color: transparent;
+    -webkit-text-stroke: 0.1vw #8A5362;
+}
+.slogan{
+    overflow: hidden;
+    left:-100%;
+    position: relative;
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-family: 'Josefin Sans',sans-serif;
+    text-align: center;
+    animation: anim3 3s forwards 3.5s;
+}
+
+.to-buy{
+    position: relative;
+    top: -20%;
+    opacity: 0;
+    color: #8A5362;
+    font-size: 3rem;
+    font-family: 'Orbitron',
+    sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 10px;
+    text-align: center;
+    margin-top: 4rem;
+    animation: anim4 2s forwards 3.9s;
+}
+
+.scroll-down {
+    transform: scale(0);
+    opacity: 0;
+    margin-top: 2rem;
+    text-align: center;
+    transform: translateX(-50%);
+    animation: anim5 2s forwards 3.9s;
+}
+
+.scroll-down i {
+    display: block;
+    color: white;
+    font-size: 2rem;
+    padding: 2rem;
+    animation: down 2s infinite;
+}
+
+.scroll-down a {
+    text-decoration: none;
+}
+
+
+
+/* main-content */
+.container{
+    opacity: 0;
+    width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+    margin-top: 1.2rem;
+    display: flex;
+    animation : anim6 2s forwards 4s;
+}
+.imageBackground {
+    position: relative;
+    width: 90%;
+    height: 100vh;
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.1),
+    0 -15px 35px rgba(0, 0, 0, 0.1),
+    0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: .5s;
+}
+.gradients {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+}
+.first {
+    z-index: 0;
+    animation: 1s width ease;
+}
+
+@keyframes width {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.second{
+    z-index:-1;
+}
+.gradient[color="blue"] {
+    background-image: linear-gradient(45deg, #0136af, #22abfa);
+}
+
+.gradient[color="red"] {
+    background-image: linear-gradient(45deg, #d62926, #ee625f);
+}
+
+.gradient[color="purple"] {
+    background-image: linear-gradient(45deg, #b5838d, #ffb4a2);
+}
+
+.gradient[color="pink"] {
+    background-image: linear-gradient(45deg, #3e1f47, #0b525b);
+}
+
+.gradient[color="black"] {
+    background-image: linear-gradient(45deg, #111, #666);
+}
+
+.arch{
+    position: absolute;
+    top: 250px;
+    left: 13px;
+    font-size: 12.3rem;
+    text-transform: uppercase;
+    line-height: .9;
+    color: #fff;
+    opacity: .1;
+    font-family: 'Orbitron',
+    sans-serif;
+}
+.shoe {
+    position: absolute;
+    height: 90vh;
+    top: 1.3rem;
+    opacity: 0;
+    bottom: 0;
+    right: 0;
+    transition: .5s;
+    animation: watch 3s infinite;
+}
+
+.shoe.show {
+    opacity: 1;
+}
+
+.info{
+    background-color: white;
+    width: 90%;
+    height: 100vh;
+    z-index: 1;
+    padding: 35px 40px;
+    box-shadow: 15px 0 35px rgba(0, 0, 0, 0.1),
+    0 -15px 35px rgba(0, 0, 0, 0.1),
+    0 15px 35px rgba(0, 0, 0, 0.1);
+}
+.watchName {
+    padding: 0 0 10px 0;
+}
+.watchName div {
+    display: flex;
+    align-items: center;
+}
+
+.watchName div .big {
+    font-family: 'Orbitron',
+    sans-serif;
+    margin-right: 10px;
+    font-size: 3rem;
+    color: #333;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+}
+
+.watchName div .new {
+    background-color: var(--primary);
+    text-transform: uppercase;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 5px;
+    transition: .5s;
+    font-family: 'Heebo',
+    sans-serif;
+}
+
+.watchName .small {
+    font-weight: 500;
+    color: #444;
+    margin-top: 2rem;
+    text-transform: capitalize;
+    font-family: 'Josefin Sans',
+    sans-serif;
+    font-size: 2rem;
+}
+
+.watchName,
+.description,
+.color-container,
+.size-container {
+    border-bottom: 2px solid #dadada;
+}
+
+.description {
+    padding: 10px 0;
+}
+
+.title {
+    color: #3a3a3a;
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans',
+    sans-serif;
+}
+
+.text {
+    margin-top: 1.4rem;
+    font-family: 'Josefin Sans',
+    sans-serif;
+    color: #555;
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-bottom: 2rem;
+}
+
+.color-container {
+    padding: 15px 0;
+}
+
+.colors {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.color {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 5px solid;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.color[color="blue"] {
+    background-color: #2175f5;
+    border-color: #2175f5;
+}
+
+.color[color="red"] {
+    background-color: #f84848;
+    border-color: #f84848;
+}
+
+.color[color="pink"] {
+    background-color: #29b864;
+    border-color: #29b864;
+}
+
+.color[color="purple"] {
+    background-color: #8A5362;
+    border-color: #8A5362;
+}
+
+.color[color="black"] {
+    background-color: #444;
+    border-color: #444;
+}
+
+.color.active {
+    border-color: #fff;
+    box-shadow: 0 0 10px .5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+.size-container {
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.sizes {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.size {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #eee;
+    margin: 0 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+    font-family: 'Josefin Sans',
+    sans-serif;
+}
+
+.size.active {
+    background-color: var(--primary);
+    color: #fff;
+    transition: .5s;
+}
+
+.buy-price {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+}
+
+.price h1 {
+    font-size: 2.1rem;
+    font-weight: 600;
+    line-height: 1;
+    font-family: 'Josefin Sans',
+    sans-serif;
+}
+
+.price i {
+    font-size: 1.4rem;
+    margin-right: 1px;
+}
+
+.buy {
+    padding: .7rem 1rem;
+    background-color: var(--primary);
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: .5s;
+    font-family: 'Josefin Sans',
+    sans-serif;
+}
+
+.buy:hover {
+    transform: scale(1.1);
+}
+
+.buy i {
+    margin-right: 2px;
+}
+
+footer {
+    margin-top: 5%;
+    padding: 4rem 0 4rem 0;
+    background: white;
+    color: black;
+    text-align: center;
+    position: relative;
+}
+
+.back-to-top {
+    width: 7rem;
+    height: 7rem;
+    background-color: #8A5362;
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.back-to-top i {
+    display: block;
+    color: white;
+    font-size: 2rem;
+    padding: 2rem;
+    animation: up 2s infinite;
+}
+
+.back-to-top a {
+    text-decoration: none;
+}
+
+.footer-content {
+    overflow: hidden;
+}
+
+.footer-content h4 {
+    font-family: 'Orbitron',
+        sans-serif;
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    color: transparent;
+    -webkit-text-stroke: 0.3vw #8A5362;
+}
+
+.footer-content-about {
+    margin-bottom: 2rem;
+}
+
+.footer-content-about p {
+    margin-left: 25%;
+    text-align: center;
+    width: 50%;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    font-family: 'Heebo',
+        sans-serif;
+    color: #3F3D56;
+
+}
+
+.social-icons {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons i {
+    font-size: 2rem;
+    color: #3F3D56;
+    padding: .8rem 2rem;
+    opacity: 1;
+    transition: color .5s;
+}
+
+.social-icons i:hover,
+.social-icons i:focus {
+    color: #8A5362;
+}
+
+.footer-content {
+    max-width: 77.5rem;
+    margin: auto;
+}
+
+@media screen and (max-width:1360px){
+    body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        position: fixed;
+        width: 100%;
+        margin-bottom: 10rem;
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 2rem;
+    }
+
+    .nav-links {
+        list-style: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #8A5362;
+        padding: 4.4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        transform: translateX(-100%);
+        transition: transform .5s;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    .burger {
+        display: block;
+        background-color: #8A5362;
+    }
+
+    #active {
+        border-bottom: 3px solid white;
+        border-radius: 4px;
+    }
+    .arch{
+        top: 349px;
+        left: 15px;
+        font-size: 10.5rem;
+    }
+    img{
+        height: 80vh;
+        top: 7rem;
+    }
+    .watchName div .big{
+        font-size: 2.5rem;
+    }
+    .title{
+        font-size: 2rem;
+    }
+
+
+}
+
+@media screen and (max-width:768px) {
+    body {
+        overflow-x: hidden;
+    }
+    nav {
+        position: fixed;
+        width: 100%;
+        margin-bottom: 10rem;
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 2rem;
+    }
+    .nav-links {
+        list-style: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 75%;
+        height: 100%;
+        background-color: #8A5362;
+        padding: 4.4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        transform: translateX(-100%);
+        transition: transform .5s;
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    .nav-active {
+        transform: translateX(0%);
+    }
+    .burger {
+    display: block;
+    background-color: #8A5362;
+    }
+    #active {
+    border-bottom: 3px solid white;
+    border-radius: 4px;
+    }
+    .product-details {
+        opacity: 0;
+        width: 90%;
+        height: 50vh;
+        margin: 0 auto;
+        margin-top: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: black;
+        animation: bg 2s forwards 1s;
+    }
+
+    .product-image {
+        background: none;
+        width: 0;
+        animation: none;
+    }
+    .product-content {
+        width: 100%;
+    }
+    .product-text span {
+        font-size: 9vw;
+        color: transparent;
+        -webkit-text-stroke: 0.3vw #8A5362;
+    }
+    .container {
+        opacity: 0;
+        width: 100%;
+        margin-left: 27px;
+        height: 100%;
+        display: block;
+        animation : anim6 2s forwards 4s;
+    }
+    .imageBackground{
+        height:40vh
+    }
+    .arch {
+        position: absolute;
+        top: 40px;
+        left: 13px;
+        font-size: 7.7rem;
+    }
+
+    .shoe {
+        position: absolute;
+        height: 40vh;
+        top: 2px;
+        opacity: 0;
+        right: 5rem;
+        transition: .5s;
+        animation: none;
+    }
+    .info {
+        background-color: white;
+        width: 90%;
+        height: auto;
+        z-index: 1;
+        padding: 10px 40px;
+    }
+    .watchName div .big {
+        margin-right: 10px;
+        font-size: 1.5rem;
+    }  
+    .watchName .small {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    .description {
+        padding: 7px 0 0 0;
+    }
+
+    .title {
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    .text {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .color-container {
+        padding: 4px 0;
+    }
+
+    .colors {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .color {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin: 0 10px;
+        border: 5px solid;
+        cursor: pointer;
+        transition: .5s;
+    }
+
+    .size {
+    font-size: 0.8rem;   
+    }
+
+    .price h1 {
+    font-size: 1.5rem;
+    }
+
+    .buy {
+    font-size: 0.8rem;
+    }
+
+    footer {
+        margin-top: 13%;
+        padding: 5rem 0 4rem 0;
+        margin-left: 0px;
+    }
+
+    .footer-content h4 {
+        font-size: 3rem;
+        margin-right: 5px;
+    }
+
+    .footer-content-about {
+        margin-bottom: 1rem;
+    }
+
+    .footer-content-about p {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+
+}
+
+
+
+
+/* ANIMATIONS */
+@keyframes bg {
+    from {
+        opacity: 0;
+        height: 0;
+    }
+
+    to {
+        opacity: 1;
+        height: 90vh;
+    }
+}
+
+@keyframes anim2 {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 50%;
+    }
+}
+
+@keyframes anim3 {
+    from {
+        left: -200%;
+    }
+
+    to {
+        left: 0%;
+    }
+}
+
+@keyframes anim4 {
+    from {
+        top:-20%;
+        opacity: 0;
+    }
+
+    to {
+        top:0;
+        opacity: 1;
+    }
+}
+
+@keyframes anim5 {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes anim6 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+@keyframes down {
+    0% {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    50% {
+        opacity: 1;
+
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+}
+
+@keyframes up {
+    0% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    50% {
+        opacity: 1;
+
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+}
+@keyframes watch{
+    0% {
+        
+        transform: translateY(0rem);
+    }
+
+    50% {
+        
+        transform: translateY(4rem);
+
+    }
+
+    100% {
+        
+        transform: translateY(0rem);
+    }
+}
